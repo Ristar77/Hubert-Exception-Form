@@ -1,88 +1,108 @@
-# Express MongoDB Exception Management API
+Exception Form Application
 
-This is a simple API built with Node.js, Express, and MongoDB to manage exception data. The application uses Mongoose for interacting with the MongoDB database and handles requests related to storing exception information.
+This project is a React-based web application designed to allow users to submit exceptions for employees. The form collects details such as employee name, UNumber, exception type, start/end dates, and times. It includes validation to ensure accurate submission and a two-step clear functionality to optimize the workflow for repeat entries.
 
-## Features
-- Connects to a MongoDB database using Mongoose.
-- Provides a RESTful API to create exceptions and store them in the database.
-- Handles requests with `POST` method for adding new exception data.
-- Implements basic error handling and responses.
+Features
 
-## Requirements
-- Node.js
-- MongoDB Atlas (or a local MongoDB server)
-- A MongoDB connection string with a valid username, password, and database name.
+1. Form Fields
+   The form includes the following fields:
 
-## Installation
+Submitter Information: Submitter Name and UNumber.
+Employee Information: Employee Name and UNumber.
+Campaign: A dropdown to select the campaign.
+Exception Type: A dropdown to specify the type of exception (e.g., Sickness, Holiday).
+Date and Time Selectors: Start and end dates/times for the exception.
 
-### 1. Clone the repository
+2. Validation
+   Ensures that the end date and time are later than the start date and time.
+   Prevents submission if required fields are missing.
 
-git clone https://github.com/yourusername/exception-management-api.git
-cd exception-management-api
+3. Two-Stage Clear Functionality
+   First Click: Clears all fields except submitter information to allow for efficient multiple entries.
+   Second Click: Clears all fields, including submitter information, for a fresh start.
 
-2. Install Dependencies
-Make sure you have Node.js installed, then run:
+4. Reusable Components
+   TimeSelector: Handles time inputs with optional validation.
+   DateSelector: Handles date inputs.
+   SubmitButton and ClearButton: Custom buttons for form actions.
+
+5. Navigation
+   Includes routing using react-router-dom with a placeholder for home and other pages.
+
+Getting Started
+
+Prerequisites
+
+Ensure you have the following installed:
+
+Node.js (v16 or higher)
+npm
+
+Installation
+
+Clone the repository:
+
+git clone https://github.com/yourusername/exception-form.git
+Navigate to the project directory:
+
+cd exception-form
+
+Install dependencies:
+
 npm install
 
-3. Set Up MongoDB
-Create a MongoDB account and cluster on MongoDB Atlas if you don't already have one.
-Get your MongoDB connection string. Replace the placeholders <YourUsername>, <yourpassword>, and yourdatabase in the code with your actual MongoDB credentials.
-Paste your MongoDB connection string in the code where the MongoDB connection is initialized:
-js
+Running the Application
 
-mongoose.connect("mongodb+srv://<YourUsername>:<yourpassword>@<YourApp>.nnlqg.mongodb.net/yourdatabase?retryWrites=true&w=majority&appName=Yourappname", { useNewUrlParser: true, useUnifiedTopology: true });
-
-4. Start the Server
-
-To start the server, run:
+Start the development server:
 
 npm start
-This will start the Express server on port 5000 (you can change the port in the code if needed).
 
-5. Test the API
-You can now send POST requests to the following endpoint:
+File Structure
 
-POST /exceptions
-This will save exception data to the MongoDB database. You need to provide the data in JSON format with the following fields:
-exceptionType (String): Type of exception.
-campaign (String): Campaign name.
-employeeName (String): Name of the employee.
-employeeNumber (String): Employee number.
-submitterName (String): Name of the submitter.
-submitterUNumber (String): Submitter's user number.
-startDateTime (Date): Start time of the exception.
-endDateTime (Date): End time of the exception.
-Example Request:
+src/
+├── components/
+│ ├── ClearButton.tsx # Clear button component
+│ ├── DateSelector.tsx # Date input component
+│ ├── NavBar.tsx # Navigation bar
+│ ├── SubmitButton.tsx # Submit button component
+│ ├── TimeSelector.tsx # Time input component
+├── pages/
+│ ├── Home.tsx # Placeholder for the home page
+│ ├── OtherPage.tsx # Placeholder for another page
+├── App.tsx # Main app entry point
+├── ExceptionForm.tsx # Exception form component
+├── index.tsx # Application root file
 
-POST http://localhost:5000/exceptions
-Content-Type: application/json
+Usage
 
-{
-  "exceptionType": "Sick Leave",
-  "campaign": "Campaign X",
-  "employeeName": "John Doe",
-  "employeeNumber": "12345",
-  "submitterName": "Jane Smith",
-  "submitterUNumber": "67890",
-  "startDateTime": "2024-12-05T09:00:00Z",
-  "endDateTime": "2024-12-05T17:00:00Z"
-}
-Example Response:
-json
-Copy code
-{
-  "message": "Exception saved successfully"
-}
-Error Handling:
-If an error occurs (e.g., database connection fails or data saving fails), the server will respond with an appropriate error message.
+Fill in the submitter information (e.g., name, UNumber).
+Provide the employee details (name, UNumber).
+Select the campaign and exception type.
+Choose start and end dates/times.
+Submit the form. The application validates the inputs and ensures the end time is later than the start time.
 
-Port:
-The server runs on http://localhost:5000. You can change the port by modifying the PORT variable in the code.
+Use the Clear button:
+First click: Clears fields except the submitter's information.
+Second click: Clears all fields, including the submitter's information.
 
-Technologies Used
-Node.js: JavaScript runtime environment.
-Express: Web framework for Node.js.
-MongoDB: NoSQL database for storing exception data.
-Mongoose: ODM (Object Data Modeling) library for MongoDB and Node.js.
-CORS: Middleware to allow cross-origin requests.
-Body-parser: Middleware to parse incoming request bodies.
+Validation Rules
+
+All fields must be filled.
+End date and time must be later than the start date and time.
+Errors are displayed in a prominent red alert box when validation fails.
+
+Future Enhancements
+
+Add form persistence for draft submissions.
+Integrate with a backend API for storing exception data.
+Improve error handling and display for field-specific issues.
+
+Contributing
+
+Contributions are welcome! Please follow these steps:
+
+Contact
+For questions or support, please contact:
+
+Your Name: rick.rainford@hgsuk.com
+GitHub: github.com/yourusername
