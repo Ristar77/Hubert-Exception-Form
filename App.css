@@ -1,0 +1,150 @@
+/* Assuming company colors */
+:root {
+  --primary-color: rgba(151, 152, 165, 255); /* Primary color (e.g. Gray) */
+  --secondary-color: rgba(0, 86, 147, 1); /* Secondary color (e.g., blue) */
+  --background-color: rgba(0, 86, 147, 1); /* Background color (white) */
+}
+
+body {
+  background-color: var(
+    --secondary-color
+  ); /* company blue background for the page */
+}
+
+.container {
+  background-color: var(
+    --background-color
+  ); /* White background for the content area */
+}
+
+h1,
+h2,
+h3,
+p {
+  color: var(--primary-color); /* Apply primary color to text */
+}
+
+/* Form labels */
+.col-form-label {
+  color: rgba(151, 152, 165, 255); /* Dark gray label text */
+  font-weight: bold;
+  font-size: x-large;
+}
+
+/* Submit button */
+.submit-button {
+  background-color: #007bff; /* Company primary color */
+  color: #ffffff; /* White text for visibility */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+/* Ensure Flexbox is applied to the header */
+.app-header {
+  display: flex;
+  justify-content: space-between; /* Space the items on opposite sides */
+  align-items: center; /* Vertically align items in the center */
+  padding: 20px;
+}
+
+/* Logo styles for left and right */
+.logo-left,
+.logo-right {
+  width: 200px; /* Adjust size */
+  height: auto;
+}
+
+/* Ensure the title is centered */
+.header-title {
+  text-align: center; /* Center the title */
+  flex-grow: 1; /* Allows the title to take up remaining space between the logos */
+}
+
+/* Additional styles for bot image (if needed) */
+.bot-image-container {
+  text-align: center; /* Center the bot image */
+  margin-top: 20px;
+}
+
+/* Change the background color */
+.navbar {
+  background-color: rgba(
+    0,
+    86,
+    147,
+    1
+  ) !important; /* Overrides Bootstrap's default */
+}
+
+/* Change the brand logo's font and color */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white !important; /* Makes sure color is applied */
+}
+
+/* Style the navigation links */
+.nav-link {
+  color: white !important;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #ffd700 !important; /* Change color on hover */
+}
+
+/* Style the active link */
+.nav-link.active {
+  color: #ffd700 !important;
+  font-weight: bold;
+  border-bottom: 2px solid #ffd700; /* Add underline for active link */
+}
+
+/* Customize the toggler button */
+.navbar-toggler {
+  border: 1px solid white;
+}
+
+.navbar-toggler-icon {
+  background-color: white;
+}
+
+/* Style the search bar */
+.form-control {
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+}
+
+.btn-outline-success {
+  color: white !important;
+  border-color: white;
+}
+
+.btn-outline-success:hover {
+  background-color: white !important;
+  color: #007bff !important;
+}
+
+/* styles.css */
+.time-fields {
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+.submit-buttons {
+  margin-top: 20px; /* Add space above the buttons */
+}
+/* styles.css */
+.time-picker-wrapper {
+  display: inline-block;
+  width: 100%; /* Make it full-width like a Bootstrap input */
+}
+
+.time-picker-wrapper input {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 1.25rem; /* Matches form-control-lg */
+  width: 100%; /* Ensure input spans the full width */
+}
