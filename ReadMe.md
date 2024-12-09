@@ -42,7 +42,7 @@ Installation
 
 Clone the repository:
 
-git clone https://github.com/yourusername/exception-form.git
+git clone https://github.com/Ristar77/Hubert-Exception-Form
 Navigate to the project directory:
 
 cd exception-form
